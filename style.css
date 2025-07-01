@@ -1,0 +1,295 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f4f4f4;
+}
+
+.hidden {
+    display: none;
+}
+
+#login {
+    margin-top: 100px;
+}
+
+#chat {
+    width: 60%;
+    margin: 20px auto;
+    text-align: left;
+}
+
+#chatBox {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    height: 300px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    background: white;
+    padding: 10px;
+    margin-bottom: 20px;
+    user-select: none;
+}
+
+.message {
+    position: relative;
+    padding: 10px 15px;
+    border-radius: 18px;
+    margin: 5px 0;
+    display: inline-block;
+    max-width: 70%;
+    word-wrap: break-word;
+    font-size: 14px;
+    margin-bottom: 10px; /* Add spacing between messages */
+}
+
+.myMessage {
+    background-color: #007aff;
+    color: white;
+    align-self: flex-end;
+    text-align: right;
+    margin-left: auto;
+    margin-right: 10px; /* Add space on the right */
+}
+
+.otherMessage {
+    background-color: #e5e5ea;
+    color: black;
+    align-self: flex-start;
+    text-align: left;
+    margin-right: auto;
+    margin-left: 10px; /* Add space on the left */
+    border: 1px solid #ddd;
+}
+
+.timestamp {
+    position: absolute;
+    bottom: 0px;
+    right: 10px;
+    font-size: 10px;
+    color: #000000;
+}
+
+#messageContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.inputWrapper {
+    position: relative;
+    width: 70%;
+}
+
+#messageInput {
+    width: 100%;
+    padding: 10px;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    padding-right: 10px; /* Space for the icon */
+}
+
+.icon-button {
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+}
+.senderName {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+}
+#sendBtn {
+    background-color: #007aff;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-left: 60px;
+}
+
+#sendBtn:hover {
+    background-color: #0056b3;
+}
+
+#onlineUsers {
+    margin-top: 10px;
+}
+
+.onlineUser {
+    padding: 5px;
+    background-color: #f0f0f5;
+    border-radius: 10px;
+    margin: 2px 0;
+}
+
+#replyBox {
+    margin: 10px 0;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border: 3px dotted #ff0000;
+    border-radius: 10px;
+    position: relative;
+}
+
+.replyContent {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#replyText {
+    flex-grow: 1;
+}
+
+#warning {
+    background-color: #ffcc00;
+    color: black;
+    text-align: center;
+    padding: 10px;
+    font-weight: bold;
+}
+
+#howToUsePopup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+#howToUsePopup.active {
+    display: flex;
+}
+
+.popupContent {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 500px;
+    position: relative;
+    z-index: 1001; /* Ensure popup is above the blur */
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #333;
+}
+
+.blur {
+    filter: blur(5px);
+}
+.emojiPicker {
+    position: absolute;
+    bottom: 60px;
+    left: 10px;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    display: none;
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 1000;
+}
+
+.emojiPicker.active {
+    display: block;
+}
+
+.emojiItem {
+    padding: 5px;
+    cursor: pointer;
+    display: inline-block;
+    width: 40px;
+    text-align: center;
+}
+
+.emojiItem:hover {
+    background-color: #f0f0f0;
+}
+
+
+#iconPickerContainer {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+
+#iconPickerToggle {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 5px 10px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+#iconDropdown {
+    margin-top: 5px;
+    width: 180px;
+    max-height: 200px;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    overflow-y: auto;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    position: absolute;
+    right: 0;
+    top: 40px;
+    display: none;
+    padding: 5px;
+}
+
+#iconDropdown .iconOption {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#iconDropdown .iconOption:hover {
+    background-color: #f0f0f0;
+}
+
+#iconDropdown .iconOption img {
+    width: 20px;
+    height: 20px;
+}
+
+#iconDropdown .iconOption span {
+    flex-grow: 1;
+    font-size: 14px;
+}
+
+#iconDropdown.hidden {
+    display: none;
+}
+
+#iconPickerContainer, #iconDropdown, #iconPickerToggle {
+    text-align: initial;
+}
+

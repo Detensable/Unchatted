@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unchatted</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Warning Message -->
+    <div id="warning">
+        ⚠️ <strong>Never share any personal information, including your real name, that can be used to identify you!</strong>
+    </div>
+
+    <!-- Login Section -->
+    <div id="login">
+        <h2>Join a Chat Room</h2>
+        <input type="text" id="username" placeholder="Enter username">
+        <input type="text" id="roomCode" placeholder="Enter Room ID">
+        <button id="joinBtn">Join</button>
+        <button id="launchBtn">Launch</button>
+        <button id="howToUseBtn">How to Use</button> <!-- How to Use Button -->
+    </div>
+
+    <!-- Chat Section -->
+    <div id="chat" class="hidden">
+        <h2 id="chatHeader"></h2>
+        <div id="chatBox"></div>
+
+        <!-- Online Users -->
+        <a><b>Active Users:</b></a>
+        <div id="onlineUsers"></div>
+
+        <!-- Reply Box -->
+        <div id="replyBox" class="hidden">
+            <div class="replyContent">
+                <span id="closeReply" class="close">&times;</span>
+                <div id="replyText"></div>
+            </div>
+        </div>
+
+        <!-- Image Input, Message Input & Send Button -->
+        <div id="messageContainer">
+            <input type="file" id="imageInput" accept="image/*" style="display: none;">
+            <div class="inputWrapper">
+                <input type="text" id="messageInput" placeholder="Type a message...">
+                <button id="uploadBtn" class="icon-button">📷</button> <!-- Upload Icon -->
+            </div>
+            <button id="sendBtn">Send</button>
+        </div>
+    </div>
+
+    <!-- How to Use Popup -->
+    <div id="howToUsePopup" class="hidden">
+        <div class="popupContent">
+            <span id="closePopup" class="close">&times;</span>
+            <h2>How to Use</h2>
+            <p>
+                <b>- About:Blank Opener -</b><br>
+                Click launch before you try to sign into a room<br>No need to click launch afterwards.<br><br>
+
+                <b>- What Is This? -</b><br>
+                This is a unfiltered/unmonitored site where people can discuss topics without school spyware logging everything they do.<br>
+                Enter your username, and then the code your friend gave you, or, make one up and share it with others!<br> <br>
+                <u>You can request chats to be cleared, just add me on discord (1337.rapid)</u><br>
+                I will <b>clear chats weekly</b> at the same time, <b>6pm PST</b>, unless busy, chats will clear every <b>SUNDAY</b>.
+            </p>
+        </div>
+    </div>
+    
+    <!-- Icon Picker Button -->
+<div id="iconPickerContainer">
+    <button id="iconPickerToggle">🌐</button>
+    <div id="iconDropdown" class="hidden">
+        <!-- Add icons here -->
+        <div class="iconOption" data-icon="icons/googledrive.png" data-title="Google Drive">
+            <img src="icons/googledrive.png" alt="Google Drive"><span>Google Drive</span>
+        </div>
+        <div class="iconOption" data-icon="icons/youtube.png" data-title="YouTube">
+            <img src="icons/youtube.png" alt="YouTube"><span>YouTube</span>
+        </div>
+        <div class="iconOption" data-icon="icons/discord.png" data-title="Discord">
+            <img src="icons/discord.png" alt="Discord"><span>Discord</span>
+        </div>
+        <div class="iconOption" data-icon="icons/docs.png" data-title="Google Docs">
+            <img src="icons/docs.png" alt="Google Docs"><span>Docs</span>
+        </div>
+        <!-- Add more icons as needed -->
+    </div>
+</div>
+
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+
+    <!-- Your script -->
+    <script src="script.js"></script>
+</body>
+</html>
